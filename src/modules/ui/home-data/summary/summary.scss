@@ -1,0 +1,15 @@
+.summary {
+  flex-wrap: wrap;
+
+  .value-with-unit {
+    width: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.summary-group {
+  width: 50%;
+  min-width: 600px;
+}
+

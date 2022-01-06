@@ -1,0 +1,25 @@
+@import "src/modules/ui/sass/themes/default";
+
+.header{
+    background-color: $primary-color;
+    display: flex;
+    height: 50px;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-header{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.right-header{
+    padding: 20px;
+}
+
+.header-title{
+    font-size: 200%;
+    font-weight: bolder;
+}

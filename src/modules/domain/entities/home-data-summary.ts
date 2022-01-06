@@ -1,0 +1,11 @@
+import {ValueWithUnit} from "./value-with-unit";
+
+export class HomeDataSummary {
+    constructor(
+        readonly livingRoomTemperature: ValueWithUnit,
+        readonly bedroomTemperature: ValueWithUnit,
+        readonly absoluteAtmosphericPressure: ValueWithUnit,
+        readonly relativeAtmosphericPressure: ValueWithUnit
+    ) {
+    }
+}

@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        SONAR_LOGIN = 'sonar'
-        SONAR_PROJECT_KEY = 'fr.li212.manudomo3:manudomo3-back'
-    }
-
     post {
         failure {
             updateGitlabCommitStatus name: 'build', state: 'failed'

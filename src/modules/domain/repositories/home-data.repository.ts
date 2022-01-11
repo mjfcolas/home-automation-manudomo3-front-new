@@ -5,7 +5,7 @@ import {TimeStep} from "../entities/consolidated/time-step";
 import {ConsolidatedConsumption} from "../entities/consolidated/consolidated-consumption";
 
 export interface HomeDataRepository {
-    summary(): Promise<HomeDataSummary>;
+    summary(interval: Interval): Promise<HomeDataSummary>;
 
     livingRoomTemperatures(interval: Interval): Promise<Dataset>;
 

@@ -16,6 +16,9 @@ const resources = {
             "summary.legend.absolute_atmospheric_pressure": "Pression absolue",
             "summary.legend.relative_atmospheric_pressure": "Pression relative",
 
+            "summary.legend.electricity-price": "Cout: ",
+            "summary.legend.mean-electricity-price": "Cout Moyen: ",
+
             "dataset.title.temperatures_living_room": "Températures Salon",
             "dataset.title.temperatures_bedroom": "Températures Chambre",
             "dataset.title.pressures": "Pressions atmosphériques",

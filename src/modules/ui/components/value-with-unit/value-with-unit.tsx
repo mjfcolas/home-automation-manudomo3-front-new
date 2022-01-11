@@ -17,7 +17,7 @@ const ValueWithUnit: FunctionComponent<ValueWithUnitProps> = (props) => {
         <div className="value-with-unit">
             <FontAwesomeIcon icon={props.icon}/>
             <span className="value-with-unit-label">{props.legend} : </span>
-            <b>{props.value}</b> {props.unit}
+            <b>{props.value.toFixed(2)}</b> {props.unit}
         </div>
     )
 }

@@ -12,6 +12,7 @@ import {ConsolidatedConsumption} from "modules/domain/entities/consolidated/cons
 import {TimeStep} from "modules/domain/entities/consolidated/time-step";
 import {ConsolidatedIndexesDto} from "./dto/consolidated-indexes-dto";
 import {TimeFramedConsumption} from "../../domain/entities/consolidated/time-framed-consumption";
+import {SummaryDto} from "./dto/summary-dto";
 
 export class WebHomeDataRepository implements HomeDataRepository {
 
@@ -30,12 +31,21 @@ export class WebHomeDataRepository implements HomeDataRepository {
         )))
     }
 
-    async summary(): Promise<HomeDataSummary> {
+    async summary(interval: Interval): Promise<HomeDataSummary> {
+        const from: number = Math.floor(interval.start.toSeconds());
+        const to: number = Math.floor(interval.end.toSeconds());
+
+        const response = await fetch(
+            this.configuration.baseUrl + `/summary?from=${from}&to=${to}`,
+            {credentials: 'include'})
+        const body = await response.json() as SummaryDto
+
         return new HomeDataSummary(
-            {value: 21.3, unit: "°C"},
-            {value: 17.8, unit: "°C"},
-            {value: 1002.5, unit: "hPa"},
-            {value: 1010.3, unit: "hPa"},
+            {value: body.temperature.find(temperature => temperature.room === 'LIVING_ROOM')?.value || 0, unit: "°C"},
+            {value: body.temperature.find(temperature => temperature.room === 'BEDROOM')?.value || 0, unit: "°C"},
+            {value: body.pressure.relativePressure, unit: "hPa"},
+            {value: body.electricityPrice, unit: "€"},
+            {value: body.meanElectricityPrice, unit: "€/kWh"},
         );
     }
 

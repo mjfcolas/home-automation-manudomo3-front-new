@@ -1,6 +1,6 @@
-import {LoginRepository} from "../../../domain/repositories/login.repository";
+import {LoginRepository} from "../../domain/repositories/login.repository";
 import {BehaviorSubject, Observable} from "rxjs";
-import {ApiConfiguration} from "../api-configuration";
+import {ApiConfiguration} from "./api-configuration";
 import Cookies from "js-cookie";
 
 

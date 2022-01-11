@@ -13,13 +13,14 @@ export class DemoHomeDataRepository implements HomeDataRepository {
         return new HomeDataSummary(
             {value: 21.3, unit: "°C"},
             {value: 17.8, unit: "°C"},
-            {value: 1002.5, unit: "hPa"},
             {value: 1010.3, unit: "hPa"},
+            {value: 50.3, unit: "€"},
+            {value: 0.13, unit: "€/kWh"},
         );
     }
 
     async consolidatedIndexes(step: TimeStep): Promise<ConsolidatedConsumption> {
-        if(step === TimeStep.MONTH) {
+        if (step === TimeStep.MONTH) {
             return new ConsolidatedConsumption(
                 TimeStep.MONTH,
                 [
@@ -29,7 +30,7 @@ export class DemoHomeDataRepository implements HomeDataRepository {
                     new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2018-07-31T22:00:00.000Z"), DateTime.fromISO("2018-08-31T22:00:00.000Z")), 1900293)
                 ]
             )
-        }else {
+        } else {
             return new ConsolidatedConsumption(
                 TimeStep.YEAR,
                 [

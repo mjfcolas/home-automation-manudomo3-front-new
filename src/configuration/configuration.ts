@@ -1,7 +1,7 @@
 import {IntervalState} from "../modules/domain/state/interval.state";
-import {WebHomeDataRepository} from "../modules/infrastructure/web/web-home-data.repository";
 import {ApiConfiguration} from "../modules/infrastructure/web/api-configuration";
-import {WebLoginRepository} from "../modules/infrastructure/web/dto/web-login.repository";
+import {WebLoginRepository} from "../modules/infrastructure/web/web-login.repository";
+import {WebHomeDataRepository} from "../modules/infrastructure/web/web-home-data.repository";
 
 const configuration: ApiConfiguration = {
     baseUrl: process.env.REACT_APP_MANUDOMO3_API_BASE_URL as string,

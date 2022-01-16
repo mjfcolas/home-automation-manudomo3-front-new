@@ -2,7 +2,7 @@ import {FunctionComponent, useState} from "react";
 import {DateTime} from "luxon";
 import './interval-picker.scss'
 
-const INPUT_DATE_FORMAT = "yyyy-MM-dd'T'hh:mm"
+const INPUT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm"
 type Interval = {
     start: Date, end: Date
 }

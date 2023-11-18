@@ -11,7 +11,7 @@ build:
   stage: build
   script:
     - npm ci
-    - npm run build
+    - REACT_APP_MANUDOMO3_API_BASE_URL=$MANUDOMO3_API_BASE_URL npm run build
   artifacts:
     paths:
       - node_modules

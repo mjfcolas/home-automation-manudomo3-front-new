@@ -16,6 +16,7 @@ export class DemoHomeDataRepository implements HomeDataRepository {
             {value: 1010.3, unit: "hPa"},
             {value: 50.3, unit: "€"},
             {value: 0.13, unit: "€/kWh"},
+            {value: 50, unit: "%"}
         );
     }
 
@@ -84,6 +85,21 @@ export class DemoHomeDataRepository implements HomeDataRepository {
                 new TimedPoint(1014.1, DateTime.fromISO("2021-12-18T19:37:21.212Z")),
                 new TimedPoint(1014.1, DateTime.fromISO("2021-12-18T19:37:41.212Z")),
                 new TimedPoint(1014.3, DateTime.fromISO("2021-12-18T19:38:41.212Z")),
+
+            ]
+        )
+    }
+
+    async hygrometries(interval: Interval): Promise<Dataset> {
+        return new Dataset(
+            [
+                new TimedPoint(50, DateTime.fromISO("2021-12-18T19:34:41.212Z")),
+                new TimedPoint(50, DateTime.fromISO("2021-12-18T19:35:41.212Z")),
+                new TimedPoint(45, DateTime.fromISO("2021-12-18T19:36:41.212Z")),
+                new TimedPoint(45, DateTime.fromISO("2021-12-18T19:36:51.212Z")),
+                new TimedPoint(65, DateTime.fromISO("2021-12-18T19:37:21.212Z")),
+                new TimedPoint(67, DateTime.fromISO("2021-12-18T19:37:41.212Z")),
+                new TimedPoint(68, DateTime.fromISO("2021-12-18T19:38:41.212Z")),
 
             ]
         )

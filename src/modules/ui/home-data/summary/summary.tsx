@@ -2,10 +2,10 @@ import React, {FunctionComponent, useEffect, useState} from "react";
 import ValueWithUnit from "../../components/value-with-unit/value-with-unit";
 import {HomeDataSummary} from "../../../domain/entities/home-data-summary";
 import {homeDataRepository, intervalState} from "../../../../configuration/configuration";
-import {faBed, faCloud, faCouch} from "@fortawesome/free-solid-svg-icons";
 import {useTranslation} from "react-i18next";
 import './summary.scss'
 import {Subscription} from "rxjs";
+import {faBed, faCloud, faCouch, faDroplet, faEuroSign} from "@fortawesome/free-solid-svg-icons";
 
 const Summary: FunctionComponent = () => {
     const {t} = useTranslation();
@@ -48,16 +48,20 @@ const Summary: FunctionComponent = () => {
                                value={summary.relativeAtmosphericPressure.value}
                                unit={summary.relativeAtmosphericPressure.unit}
                                icon={faCloud}/>
+                <ValueWithUnit legend={t("summary.legend.hygrometry")}
+                               value={summary.hygrometry.value}
+                               unit={summary.hygrometry.unit}
+                               icon={faDroplet}/>
             </span>
             <span className={"flex summary-group"}>
                 <ValueWithUnit legend={t("summary.legend.electricity-price")}
                                value={summary.electricityPrice.value}
                                unit={summary.electricityPrice.unit}
-                               icon={faCloud}/>
+                               icon={faEuroSign}/>
                 <ValueWithUnit legend={t("summary.legend.mean-electricity-price")}
                                value={summary.meanElectricityPrice.value}
                                unit={summary.meanElectricityPrice.unit}
-                               icon={faCloud}/>
+                               icon={faEuroSign}/>
             </span>
         </div>
     )

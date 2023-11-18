@@ -6,7 +6,8 @@ export class HomeDataSummary {
         readonly bedroomTemperature: ValueWithUnit,
         readonly relativeAtmosphericPressure: ValueWithUnit,
         readonly electricityPrice: ValueWithUnit,
-        readonly meanElectricityPrice: ValueWithUnit
+        readonly meanElectricityPrice: ValueWithUnit,
+        readonly hygrometry: ValueWithUnit
     ) {
     }
 }

@@ -13,6 +13,8 @@ export interface HomeDataRepository {
 
     atmosphericPressures(interval: Interval): Promise<Dataset>;
 
+    hygrometries(interval: Interval): Promise<Dataset>;
+
     intensities(interval: Interval): Promise<Dataset>;
 
     peakHourIndexes(interval: Interval): Promise<Dataset>;

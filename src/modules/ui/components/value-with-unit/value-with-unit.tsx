@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from "react";
-import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import './value-with-unit.scss'
+import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
 
 export type ValueWithUnitProps = {
     legend: string
@@ -10,7 +10,6 @@ export type ValueWithUnitProps = {
     unit: string,
 
 }
-
 
 const ValueWithUnit: FunctionComponent<ValueWithUnitProps> = (props) => {
     return (

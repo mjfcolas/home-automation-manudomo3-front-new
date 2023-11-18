@@ -15,6 +15,7 @@ const resources = {
             "summary.legend.bedroom_temperature": "Temp. Chambre",
             "summary.legend.absolute_atmospheric_pressure": "Pression absolue",
             "summary.legend.relative_atmospheric_pressure": "Pression relative",
+            "summary.legend.hygrometry": "Hygrométrie",
 
             "summary.legend.electricity-price": "Cout: ",
             "summary.legend.mean-electricity-price": "Cout Moyen: ",
@@ -22,6 +23,7 @@ const resources = {
             "dataset.title.temperatures_living_room": "Températures Salon",
             "dataset.title.temperatures_bedroom": "Températures Chambre",
             "dataset.title.pressures": "Pressions atmosphériques",
+            "dataset.title.hygrometries": "Hygrométries",
             "dataset.title.intensities": "Intensités",
             "dataset.title.off_peak_indexes": "Indexs EDF Heures creuses",
             "dataset.title.peak_indexes": "Indexs EDF Heures pleines",

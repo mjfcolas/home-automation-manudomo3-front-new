@@ -13,6 +13,7 @@ import {TimeStep} from "modules/domain/entities/consolidated/time-step";
 import {ConsolidatedIndexesDto} from "./dto/consolidated-indexes-dto";
 import {TimeFramedConsumption} from "../../domain/entities/consolidated/time-framed-consumption";
 import {SummaryDto} from "./dto/summary-dto";
+import {HygrometryDto} from "./dto/hygrometry-dto";
 
 export class WebHomeDataRepository implements HomeDataRepository {
 
@@ -46,6 +47,7 @@ export class WebHomeDataRepository implements HomeDataRepository {
             {value: body.pressure.relativePressure, unit: "hPa"},
             {value: body.electricityPrice, unit: "€"},
             {value: body.meanElectricityPrice, unit: "€/kWh"},
+            {value: body.hygrometry.value, unit: "%"}
         );
     }
 
@@ -84,6 +86,19 @@ export class WebHomeDataRepository implements HomeDataRepository {
 
         return new Dataset(body.map(element => new TimedPoint(element.relativePressure, DateTime.fromISO(element.measureInstant))));
     }
+
+    async hygrometries(interval: Interval): Promise<Dataset> {
+        const from: number = Math.floor(interval.start.toSeconds());
+        const to: number = Math.floor(interval.end.toSeconds());
+
+        const response = await fetch(
+            this.configuration.baseUrl + `/hygrometries/interval?numberOfPoints=${this.configuration.numberOfPoints}&from=${from}&to=${to}`,
+            {credentials: 'include'})
+        const body = await response.json() as HygrometryDto[]
+
+        return new Dataset(body.map(element => new TimedPoint(element.value, DateTime.fromISO(element.measureInstant))));
+    }
+
 
     async intensities(interval: Interval): Promise<Dataset> {
         const from: number = Math.floor(interval.start.toSeconds());

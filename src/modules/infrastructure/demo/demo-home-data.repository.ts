@@ -105,7 +105,7 @@ export class DemoHomeDataRepository implements HomeDataRepository {
         )
     }
 
-    async intensities(interval: Interval): Promise<Dataset> {
+    async apparentPowers(interval: Interval): Promise<Dataset> {
         return new Dataset(
             [
                 new TimedPoint(1, DateTime.fromISO("2021-12-18T19:34:41.212Z")),

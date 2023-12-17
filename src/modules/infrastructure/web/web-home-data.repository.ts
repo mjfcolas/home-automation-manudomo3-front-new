@@ -6,7 +6,7 @@ import {ApiConfiguration} from "./api-configuration";
 import {TimedPoint} from "../../domain/entities/timed-point";
 import {TemperatureDto} from "./dto/temperature-dto";
 import {PressureDto} from "./dto/pressure-dto";
-import {IntensityDto} from "./dto/intensity-dto";
+import {ApparentPowerDto} from "./dto/apparent-power-dto";
 import {EdfIndexDto} from "./dto/edf-index-dto";
 import {ConsolidatedConsumption} from "modules/domain/entities/consolidated/consolidated-consumption";
 import {TimeStep} from "modules/domain/entities/consolidated/time-step";
@@ -100,14 +100,14 @@ export class WebHomeDataRepository implements HomeDataRepository {
     }
 
 
-    async intensities(interval: Interval): Promise<Dataset> {
+    async apparentPowers(interval: Interval): Promise<Dataset> {
         const from: number = Math.floor(interval.start.toSeconds());
         const to: number = Math.floor(interval.end.toSeconds());
 
         const response = await fetch(
-            this.configuration.baseUrl + `/intensities/interval?numberOfPoints=${this.configuration.numberOfPoints}&from=${from}&to=${to}`,
+            this.configuration.baseUrl + `/apparent_powers/interval?numberOfPoints=${this.configuration.numberOfPoints}&from=${from}&to=${to}`,
             {credentials: 'include'})
-        const body = await response.json() as IntensityDto[]
+        const body = await response.json() as ApparentPowerDto[]
 
         return new Dataset(body.map(element => new TimedPoint(element.value, DateTime.fromISO(element.measureInstant))));
     }

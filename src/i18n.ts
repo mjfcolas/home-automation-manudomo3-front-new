@@ -24,7 +24,7 @@ const resources = {
             "dataset.title.temperatures_bedroom": "Températures Chambre",
             "dataset.title.pressures": "Pressions atmosphériques",
             "dataset.title.hygrometries": "Hygrométries",
-            "dataset.title.intensities": "Intensités",
+            "dataset.title.apparent_powers": "Puissance Apparente",
             "dataset.title.off_peak_indexes": "Indexs EDF Heures creuses",
             "dataset.title.peak_indexes": "Indexs EDF Heures pleines",
             "dataset.title.consolidated_indexes": "Consommation consolidée",

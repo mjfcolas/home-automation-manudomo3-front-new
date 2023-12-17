@@ -15,7 +15,7 @@ export interface HomeDataRepository {
 
     hygrometries(interval: Interval): Promise<Dataset>;
 
-    intensities(interval: Interval): Promise<Dataset>;
+    apparentPowers(interval: Interval): Promise<Dataset>;
 
     peakHourIndexes(interval: Interval): Promise<Dataset>;
 

@@ -1,4 +1,4 @@
-export type IntensityDto = {
+export type ApparentPowerDto = {
     value: number;
     measureInstant: string
 }

@@ -31,7 +31,7 @@ export class DemoHomeDataRepository implements HomeDataRepository {
                     new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2018-07-31T22:00:00.000Z"), DateTime.fromISO("2018-08-31T22:00:00.000Z")), 1900293)
                 ]
             )
-        } else {
+        } else if (step === TimeStep.YEAR) {
             return new ConsolidatedConsumption(
                 TimeStep.YEAR,
                 [
@@ -39,6 +39,16 @@ export class DemoHomeDataRepository implements HomeDataRepository {
                     new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2017-12-31T23:00:00.000Z"), DateTime.fromISO("2018-12-31T23:00:00.000Z")), 2),
                     new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2018-12-31T23:00:00.000Z"), DateTime.fromISO("2019-12-31T23:00:00.000Z")), 3),
                     new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2019-12-31T23:00:00.000Z"), DateTime.fromISO("2020-12-31T23:00:00.000Z")), 4)
+                ]
+            )
+        } else {
+            return new ConsolidatedConsumption(
+                TimeStep.WEEK,
+                [
+                    new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2017-07-17T00:00:00Z"), DateTime.fromISO("2017-07-24T00:00:00Z")), 2277),
+                    new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2017-07-24T00:00:00Z"), DateTime.fromISO("2017-07-31T00:00:00Z")), 46391),
+                    new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2017-07-31T00:00:00Z"), DateTime.fromISO("2017-08-07T00:00:00Z")), 49431),
+                    new TimeFramedConsumption(Interval.fromDateTimes(DateTime.fromISO("2017-08-07T00:00:00Z"), DateTime.fromISO("2017-08-14T00:00:00Z")), 47768)
                 ]
             )
         }

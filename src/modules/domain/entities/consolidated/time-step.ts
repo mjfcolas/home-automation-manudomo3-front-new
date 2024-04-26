@@ -1,4 +1,5 @@
 export enum TimeStep{
     MONTH = "MONTH",
-    YEAR = "YEAR"
+    YEAR = "YEAR",
+    WEEK = "WEEK",
 }

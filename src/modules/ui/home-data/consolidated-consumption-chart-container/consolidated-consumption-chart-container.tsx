@@ -34,6 +34,13 @@ const ConsolidatedConsumptionChartContainer: FunctionComponent = () => {
             <div className={"consolidation-step-choice"}>
                 <b>Pas de la consolidation</b>
                 <span>
+                    <input type={"radio"} value={TimeStep.WEEK}
+                           name={"timestep"}
+                           checked={step === TimeStep.WEEK}
+                           onChange={() => setStep(TimeStep.WEEK)}/>
+                    {t("consolidation.step." + TimeStep.WEEK)}
+                </span>
+                <span>
                     <input type={"radio"} value={TimeStep.MONTH}
                            name={"timestep"}
                            checked={step === TimeStep.MONTH}

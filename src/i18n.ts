@@ -46,7 +46,7 @@ const resources = {
 
             "consolidation.step.YEAR": "Par années",
             "consolidation.step.MONTH": "Par mois",
-
+            "consolidation.step.WEEK": "Par semaine",
         }
     }
 };

@@ -20,6 +20,8 @@ export class ConsolidatedConsumption {
                 return integerRange(1, 12).map(value => "month." + value)
             case TimeStep.YEAR:
                 return integerRange(this.startDate.year, this.endDate.year).map(value => value.toString())
+            case TimeStep.WEEK:
+                return integerRange(1, 52).map(value => value.toString())
         }
     }
 
@@ -28,6 +30,7 @@ export class ConsolidatedConsumption {
 
         switch (this.timeStep) {
             case TimeStep.MONTH:
+            case TimeStep.WEEK:
                 integerRange(this.startDate.year, this.endDate.year).forEach(year => result.set(year, year.toString()))
                 break
             case TimeStep.YEAR:
@@ -49,6 +52,13 @@ export class ConsolidatedConsumption {
                     }
                     // @ts-ignore
                     result.get(intervalStart.year)[intervalStart.month - 1] = timeFramedConsumption.summedValue;
+                    break
+                case TimeStep.WEEK:
+                    if (!result.has(intervalStart.year)) {
+                        result.set(intervalStart.year, Array(52).fill(0))
+                    }
+                    // @ts-ignore
+                    result.get(intervalStart.year)[intervalStart.weekNumber - 1] = timeFramedConsumption.summedValue;
                     break
                 case TimeStep.YEAR:
                     if (!result.has(0)) {

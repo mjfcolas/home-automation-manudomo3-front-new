@@ -52,23 +52,23 @@ export class WebHomeDataRepository implements HomeDataRepository {
     }
 
     async livingRoomTemperatures(interval: Interval): Promise<Dataset> {
-        const from: number = Math.floor(interval.start.toSeconds());
-        const to: number = Math.floor(interval.end.toSeconds());
-
-        const response = await fetch(
-            this.configuration.baseUrl + `/temperatures/interval?numberOfPoints=${this.configuration.numberOfPoints}&room=LIVING_ROOM&from=${from}&to=${to}`,
-            {credentials: 'include'})
-        const body = await response.json() as TemperatureDto[]
-
-        return new Dataset(body.map(element => new TimedPoint(element.value, DateTime.fromISO(element.measureInstant))));
+        return this.temperatures(interval, 'LIVING_ROOM');
     }
 
     async bedroomTemperatures(interval: Interval): Promise<Dataset> {
+        return this.temperatures(interval, 'BEDROOM');
+    }
+
+    async bathroomTemperatures(interval: Interval): Promise<Dataset> {
+        return this.temperatures(interval, 'BATHROOM');
+    }
+
+    private async temperatures(interval: Interval, room: string): Promise<Dataset> {
         const from: number = Math.floor(interval.start.toSeconds());
         const to: number = Math.floor(interval.end.toSeconds());
 
         const response = await fetch(
-            this.configuration.baseUrl + `/temperatures/interval?numberOfPoints=${this.configuration.numberOfPoints}&room=BEDROOM&from=${from}&to=${to}`,
+            this.configuration.baseUrl + `/temperatures/interval?numberOfPoints=${this.configuration.numberOfPoints}&room=${room}&from=${from}&to=${to}`,
             {credentials: 'include'})
         const body = await response.json() as TemperatureDto[]
 
@@ -87,12 +87,20 @@ export class WebHomeDataRepository implements HomeDataRepository {
         return new Dataset(body.map(element => new TimedPoint(element.relativePressure, DateTime.fromISO(element.measureInstant))));
     }
 
-    async hygrometries(interval: Interval): Promise<Dataset> {
+    async livingRoomHygrometries(interval: Interval): Promise<Dataset> {
+        return this.hygrometries(interval, 'LIVING_ROOM');
+    }
+
+    async bathroomHygrometries(interval: Interval): Promise<Dataset> {
+        return this.hygrometries(interval, 'BATHROOM');
+    }
+
+    private async hygrometries(interval: Interval, room: string): Promise<Dataset> {
         const from: number = Math.floor(interval.start.toSeconds());
         const to: number = Math.floor(interval.end.toSeconds());
 
         const response = await fetch(
-            this.configuration.baseUrl + `/hygrometries/interval?numberOfPoints=${this.configuration.numberOfPoints}&from=${from}&to=${to}`,
+            this.configuration.baseUrl + `/hygrometries/interval?numberOfPoints=${this.configuration.numberOfPoints}&room=${room}&from=${from}&to=${to}`,
             {credentials: 'include'})
         const body = await response.json() as HygrometryDto[]
 

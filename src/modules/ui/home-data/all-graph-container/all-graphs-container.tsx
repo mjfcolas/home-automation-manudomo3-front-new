@@ -29,12 +29,18 @@ const AllGraphsContainer: FunctionComponent = () => {
             <LineChartContainer datasetProvider={(interval) => homeDataRepository.bedroomTemperatures(interval)}
                                 interval={interval}
                                 titleKey={"dataset.title.temperatures_bedroom"}/>
+            <LineChartContainer datasetProvider={(interval) => homeDataRepository.bathroomTemperatures(interval)}
+                                interval={interval}
+                                titleKey={"dataset.title.temperatures_bathroom"}/>
             <LineChartContainer datasetProvider={(interval) => homeDataRepository.atmosphericPressures(interval)}
                                 interval={interval}
                                 titleKey={"dataset.title.pressures"}/>
-            <LineChartContainer datasetProvider={(interval) => homeDataRepository.hygrometries(interval)}
+            <LineChartContainer datasetProvider={(interval) => homeDataRepository.livingRoomHygrometries(interval)}
                                 interval={interval}
-                                titleKey={"dataset.title.hygrometries"}/>
+                                titleKey={"dataset.title.hygrometries_living_room"}/>
+            <LineChartContainer datasetProvider={(interval) => homeDataRepository.bathroomHygrometries(interval)}
+                                interval={interval}
+                                titleKey={"dataset.title.hygrometries_bathroom"}/>
             <LineChartContainer datasetProvider={(interval) => homeDataRepository.apparentPowers(interval)}
                                 interval={interval}
                                 titleKey={"dataset.title.apparent_powers"}/>

@@ -11,9 +11,13 @@ export interface HomeDataRepository {
 
     bedroomTemperatures(interval: Interval): Promise<Dataset>;
 
+    bathroomTemperatures(interval: Interval): Promise<Dataset>;
+
     atmosphericPressures(interval: Interval): Promise<Dataset>;
 
-    hygrometries(interval: Interval): Promise<Dataset>;
+    livingRoomHygrometries(interval: Interval): Promise<Dataset>;
+
+    bathroomHygrometries(interval: Interval): Promise<Dataset>;
 
     apparentPowers(interval: Interval): Promise<Dataset>;
 

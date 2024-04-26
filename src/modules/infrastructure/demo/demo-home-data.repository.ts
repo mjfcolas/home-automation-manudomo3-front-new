@@ -75,6 +75,21 @@ export class DemoHomeDataRepository implements HomeDataRepository {
         )
     }
 
+    async bathroomTemperatures(interval: Interval): Promise<Dataset> {
+        return new Dataset(
+            [
+                new TimedPoint(15, DateTime.fromISO("2021-12-18T19:34:41.212Z")),
+                new TimedPoint(16, DateTime.fromISO("2021-12-18T19:35:41.212Z")),
+                new TimedPoint(27, DateTime.fromISO("2021-12-18T19:36:41.212Z")),
+                new TimedPoint(26, DateTime.fromISO("2021-12-18T19:36:51.212Z")),
+                new TimedPoint(25, DateTime.fromISO("2021-12-18T19:37:21.212Z")),
+                new TimedPoint(24, DateTime.fromISO("2021-12-18T19:37:41.212Z")),
+                new TimedPoint(22, DateTime.fromISO("2021-12-18T19:38:41.212Z")),
+
+            ]
+        )
+    }
+
     async atmosphericPressures(interval: Interval): Promise<Dataset> {
         return new Dataset(
             [
@@ -90,7 +105,7 @@ export class DemoHomeDataRepository implements HomeDataRepository {
         )
     }
 
-    async hygrometries(interval: Interval): Promise<Dataset> {
+    async livingRoomHygrometries(interval: Interval): Promise<Dataset> {
         return new Dataset(
             [
                 new TimedPoint(50, DateTime.fromISO("2021-12-18T19:34:41.212Z")),
@@ -100,6 +115,21 @@ export class DemoHomeDataRepository implements HomeDataRepository {
                 new TimedPoint(65, DateTime.fromISO("2021-12-18T19:37:21.212Z")),
                 new TimedPoint(67, DateTime.fromISO("2021-12-18T19:37:41.212Z")),
                 new TimedPoint(68, DateTime.fromISO("2021-12-18T19:38:41.212Z")),
+
+            ]
+        )
+    }
+
+    async bathroomHygrometries(interval: Interval): Promise<Dataset> {
+        return new Dataset(
+            [
+                new TimedPoint(60, DateTime.fromISO("2021-12-18T19:34:41.212Z")),
+                new TimedPoint(60, DateTime.fromISO("2021-12-18T19:35:41.212Z")),
+                new TimedPoint(55, DateTime.fromISO("2021-12-18T19:36:41.212Z")),
+                new TimedPoint(55, DateTime.fromISO("2021-12-18T19:36:51.212Z")),
+                new TimedPoint(75, DateTime.fromISO("2021-12-18T19:37:21.212Z")),
+                new TimedPoint(77, DateTime.fromISO("2021-12-18T19:37:41.212Z")),
+                new TimedPoint(78, DateTime.fromISO("2021-12-18T19:38:41.212Z")),
 
             ]
         )

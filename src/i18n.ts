@@ -22,8 +22,10 @@ const resources = {
 
             "dataset.title.temperatures_living_room": "Températures Salon",
             "dataset.title.temperatures_bedroom": "Températures Chambre",
+            "dataset.title.temperatures_bathroom": "Températures Salle de bain",
             "dataset.title.pressures": "Pressions atmosphériques",
-            "dataset.title.hygrometries": "Hygrométries",
+            "dataset.title.hygrometries_living_room": "Hygrométries salon",
+            "dataset.title.hygrometries_bathroom": "Hygrométries Salle de bain",
             "dataset.title.apparent_powers": "Puissance Apparente",
             "dataset.title.off_peak_indexes": "Indexs EDF Heures creuses",
             "dataset.title.peak_indexes": "Indexs EDF Heures pleines",

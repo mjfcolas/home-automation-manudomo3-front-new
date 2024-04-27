@@ -1,6 +1,6 @@
 {
   "name": "manudomo3-front-react",
-  "version": "24-04.1",
+  "version": "24-04.2",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
